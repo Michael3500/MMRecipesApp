@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/item_sidemenu_home"
+            android:icon="@drawable/ic_home_green"
+            android:title="@string/prompt_home" />
+        <item android:id="@+id/item_sidemenu_sendYourRecipe"
+            android:icon="@drawable/ic_write_green"
+            android:title="@string/prompt_sendYourRecipe" />
+        <item android:id="@+id/item_sidemenu_profile"
+            android:icon="@drawable/ic_person_green"
+            android:title="@string/prompt_profile" />
+    </group>
+
+</menu>

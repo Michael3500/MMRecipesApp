@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollView_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/colorWhite" >
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/imageView_login_logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/mmrecipes" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_login_email"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView_login_logo"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            app:startIconDrawable="@drawable/ic_email_green"
+            app:startIconTint="@color/colorPrimary" >
+
+
+            <EditText
+                android:id="@+id/editText_login_email"
+                android:hint="Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_login_password"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_login_email"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            app:startIconDrawable="@drawable/ic_lock_green"
+            app:startIconTint="@color/colorPrimary"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/colorPrimary" >
+
+            <EditText
+                android:id="@+id/editText_login_password"
+                android:hint="Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_login_password"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner_button"
+            android:text="@string/title_activity_login"
+            android:textColor="@color/colorWhite"
+            android:layout_centerHorizontal="true" />
+
+        <View
+            android:id="@+id/divider_login"
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="?android:attr/listDivider"
+            android:layout_below="@+id/btn_login" />
+
+        <TextView
+            android:id="@+id/textView_login_registerNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/action_register_now" />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

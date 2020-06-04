@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/breakfast"
+        android:title="@string/breakfast"
+        android:icon="@drawable/breakfast"
+        />
+
+    <item
+        android:id="@+id/lunch"
+        android:title="@string/lunch"
+        android:icon="@drawable/test"/>
+
+    <item
+    android:id="@+id/dinner"
+    android:title="@string/dinner"/>
+
+    <item
+    android:id="@+id/snacks"
+    android:title="@string/snacks"/>
+
+    <item
+    android:id="@+id/desserts"
+    android:title="@string/desserts"
+    android:icon="@drawable/dessert"/>
+
+</menu>

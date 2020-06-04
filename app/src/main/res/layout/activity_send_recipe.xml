@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SendRecipeActivity"
+    android:id="@+id/nestedScrollView_sendARecipe"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView_sendRecipe_sendARecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="10dp"
+            android:text="@string/prompt_sendRecipe"
+            android:textColor="@color/colorPrimary"
+            android:textSize="40dp"
+            android:fontFamily="@font/satisfy" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_title"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_sendRecipe_sendARecipe"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true" >
+
+            <EditText
+                android:id="@+id/editText_sendRecipe_title"
+                android:hint="@string/hint_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_description"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_sendRecipe_title"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/editText_sendRecipe_description"
+                android:hint="@string/hint_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_category"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_sendRecipe_description"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <Spinner
+                android:id="@+id/spinner_sendRecipe_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_ingredients"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_sendRecipe_category"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/editText_sendRecipe_ingredients"
+                android:hint="@string/hint_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_steps"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_sendRecipe_ingredients"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/editText_sendRecipe_steps"
+                android:hint="@string/hint_steps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView_sendRecipe_allergiesAndDiets"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/hint_allergiesAndDiets"
+            android:layout_below="@+id/textInputLayout_sendRecipe_steps"/>
+        <LinearLayout
+            android:id="@+id/linearLayout_sendRecipe_veganAndVegetarian"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_sendRecipe_allergiesAndDiets"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:weightSum="100" >
+            <CheckBox
+                android:id="@+id/checkbox_vegan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_vegan" />
+            <CheckBox
+                android:id="@+id/checkbox_vegetarian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_vegetarian" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout_sendRecipe_glutenAndDiary"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_sendRecipe_veganAndVegetarian"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <CheckBox
+                android:id="@+id/checkbox_gluten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_gluten" />
+            <CheckBox
+                android:id="@+id/checkbox_diary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_diary" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout_sendRecipe_soyAndAlcohol"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_sendRecipe_glutenAndDiary"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <CheckBox
+                android:id="@+id/checkbox_soy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_soy" />
+            <CheckBox
+                android:id="@+id/checkbox_alcohol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_alcohol" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout_sendRecipe_sesameAndSeafood"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_sendRecipe_soyAndAlcohol"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <CheckBox
+                android:id="@+id/checkbox_sesame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_sesame" />
+            <CheckBox
+                android:id="@+id/checkbox_seafood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_seafood" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout_sendRecipe_wheatAndCelery"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_sendRecipe_sesameAndSeafood"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <CheckBox
+                android:id="@+id/checkbox_wheat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_wheat" />
+            <CheckBox
+                android:id="@+id/checkbox_celery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_celery" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout_sendRecipe_nutsAndPeanuts"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_sendRecipe_wheatAndCelery"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <CheckBox
+                android:id="@+id/checkbox_nuts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_nuts" />
+            <CheckBox
+                android:id="@+id/checkbox_peanuts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_peanuts" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout_sendRecipe_eggsAndPork"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_sendRecipe_nutsAndPeanuts"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <CheckBox
+                android:id="@+id/checkbox_eggs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_eggs" />
+            <CheckBox
+                android:id="@+id/checkbox_pork"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/prompt_pork" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_prepTime"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_sendRecipe_eggsAndPork"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:id="@+id/linearLayout_sendRecipe_prepTime"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:weightSum="100">
+                <TextView
+                    android:id="@+id/textView_sendRecipe_prepTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="@string/hint_prepTime"
+                    android:drawableLeft="@drawable/ic_clock_green"
+                    android:drawableTint="@color/colorPrimary" />
+                <EditText
+                    android:id="@+id/editText_sendRecipe_prepTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:ems="10"
+                    android:inputType="number"/>
+            </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_cookTime"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_sendRecipe_prepTime"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:id="@+id/linearLayout_sendRecipe_cookTime"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:weightSum="100">
+                <TextView
+                    android:id="@+id/textView_sendRecipe_cookTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="@string/hint_cookTime"
+                    android:drawableLeft="@drawable/ic_clock_green"
+                    android:drawableTint="@color/colorPrimary" />
+                <EditText
+                    android:id="@+id/editText_sendRecipe_cookTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:ems="10"
+                    android:inputType="number"/>
+            </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_servings"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_sendRecipe_cookTime"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:id="@+id/linearLayout_sendRecipe_servings"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:weightSum="100">
+                <TextView
+                    android:id="@+id/textView_sendRecipe_servings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="@string/hint_servings"
+                    android:drawableLeft="@drawable/ic_group_green"
+                    android:drawableTint="@color/colorPrimary" />
+                <EditText
+                    android:id="@+id/editText_sendRecipe_servings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_skillLevel"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_sendRecipe_servings"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:id="@+id/linearLayout_sendRecipe_skillLevel"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:weightSum="100">
+                <TextView
+                    android:id="@+id/textView_sendRecipe_skillLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/hint_skillLevel"
+                    android:drawableLeft="@drawable/ic_cutlery_green"
+                    android:drawableTint="@color/colorPrimary" />
+                <Spinner
+                    android:id="@+id/spinner_sendRecipe_skillLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:ems="10"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+            </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_sendRecipe_image"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_sendRecipe_skillLevel"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:id="@+id/linearLayout_sendRecipe_image"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:weightSum="100">
+                <TextView
+                    android:id="@+id/textView_sendRecipe_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/hint_image"
+                    android:layout_weight="80"/>
+                <ImageButton
+                    android:id="@+id/imageButton_sendRecipe_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="20"
+                    android:layout_margin="5dp"
+                    android:background="@color/colorPrimaryLight"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/ic_image_green"
+                    tools:ignore="VectorDrawableCompat" />
+            </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_sendRecipe_submit"
+            android:layout_width="200dp"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_submitRecipe"
+            android:layout_below="@+id/textInputLayout_sendRecipe_image"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_corner_button"
+            android:textColor="@color/colorWhite" />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
