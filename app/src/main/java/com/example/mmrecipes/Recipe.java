@@ -4,32 +4,32 @@ import java.util.List;
 
 public class Recipe {
 
-    private int id;
-     String title;
-    private String description;
-    private String category;
-    private byte[] ingredients;
-    private byte[] quantities;
-    private byte[] steps;
-    private boolean vegan;
-    private boolean vegetarian;
-    private boolean gluten;
-    private boolean diary;
-    private boolean soy;
-    private boolean alcohol;
-    private boolean sesame;
-    private boolean seafood;
-    private boolean wheat;
-    private boolean celery;
-    private boolean nuts;
-    private boolean peanuts;
-    private boolean eggs;
-    private boolean pork;
-    private int prepTime;
-    private int cookTime;
-    private int serving;
-    private String skillLevel;
-     String image;
+    int id;
+    String title;
+    String description;
+    String category;
+    byte[] ingredients;
+    byte[] quantities;
+    byte[] steps;
+    boolean vegan;
+    boolean vegetarian;
+    boolean gluten;
+    boolean diary;
+    boolean soy;
+    boolean alcohol;
+    boolean sesame;
+    boolean seafood;
+    boolean wheat;
+    boolean celery;
+    boolean nuts;
+    boolean peanuts;
+    boolean eggs;
+    boolean pork;
+    int prepTime;
+    int cookTime;
+    int serving;
+    String skillLevel;
+    String image;
 
     public Recipe() {
     }
