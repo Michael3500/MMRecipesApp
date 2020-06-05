@@ -14,7 +14,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "MMRecipeApp.db";
+    private static final String DATABASE_NAME = "MyMMRecipeApp.db";
 
     private String CREATE_USER_TABLE = "CREATE TABLE Users ( user_id INTEGER PRIMARY KEY AUTOINCREMENT, user_fullname TEXT, user_email TEXT, user_password TEXT )";
     private String CREATE_RECIPE_TABLE = "CREATE TABLE Recipes ( recipe_id INTEGER PRIMARY KEY AUTOINCREMENT, recipe_title TEXT, recipe_description TEXT, recipe_category TEXT," +

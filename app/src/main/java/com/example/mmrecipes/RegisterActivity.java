@@ -75,9 +75,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.btn_register:
                 PostDataToSqlite();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("Email", editText_Email.getText().toString().trim());
-                startActivity(intent);
+
                 //startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;
             case R.id.textView_register_loginNow:
@@ -112,6 +110,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             Snackbar.make(nestedScrollView, getString(R.string.register_success), Snackbar.LENGTH_LONG).show();
             emptyInputEdittext();
+
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra("Email", editText_Email.getText().toString().trim());
+            startActivity(intent);
         }
         else {
             Snackbar.make(nestedScrollView, getString(R.string.register_email_exists), Snackbar.LENGTH_LONG).show();
