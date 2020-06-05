@@ -9,9 +9,11 @@ import androidx.core.widget.NestedScrollView;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -48,9 +50,12 @@ public class SendRecipeActivity extends AppCompatActivity {
     private CheckBox vegan, vegetarian, gluten, diary, soy, alcohol, sesame, seafood, wheat, celery, nuts, peanuts, eggs, pork;
 
     private ImageView image;
+    private String imageUri;
 
     private Spinner spinnerCategory, spinnerSkillLevel;
     private ArrayAdapter<String> spinnerArrayAdapter;
+    private String category = null;
+    private String skillLevel = null;
 
     Button btn_submit;
 
@@ -84,7 +89,9 @@ public class SendRecipeActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-            image.setImageURI(data.getData());
+            Uri imageData = data.getData();
+            imageUri = imageData.toString();
+            image.setImageURI(imageData);
         }
     }
 
@@ -144,14 +151,36 @@ public class SendRecipeActivity extends AppCompatActivity {
         });
 
         spinnerCategory = (Spinner)findViewById(R.id.spinner_sendRecipe_category);
-        spinnerArrayAdapter = new ArrayAdapter<String>(SendRecipeActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.food_categories));
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategory.setAdapter(spinnerArrayAdapter);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.food_categories, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategory.setAdapter(adapter1);
+        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                category = spinnerCategory.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         spinnerSkillLevel = (Spinner)findViewById(R.id.spinner_sendRecipe_skillLevel);
-        spinnerArrayAdapter = new ArrayAdapter<String>(SendRecipeActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.skill_level));
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerSkillLevel.setAdapter(spinnerArrayAdapter);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.skill_level, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSkillLevel.setAdapter(adapter2);
+        spinnerSkillLevel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                skillLevel = spinnerSkillLevel.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         btn_submit = findViewById(R.id.button_sendRecipe_submit);
         btn_submit.setOnClickListener(new View.OnClickListener() {
@@ -198,7 +227,7 @@ public class SendRecipeActivity extends AppCompatActivity {
 
         recipe.setTitle(title.getText().toString());
         recipe.setDescription(description.getText().toString());
-        recipe.setCategory(spinnerCategory.toString());
+        recipe.setCategory(category);
 
         byteArrayOutputStream = new ByteArrayOutputStream();
         objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -231,8 +260,8 @@ public class SendRecipeActivity extends AppCompatActivity {
         recipe.setPrepTime(Integer.parseInt(prepTime.getText().toString()));
         recipe.setCookTime(Integer.parseInt(cookTime.getText().toString()));
         recipe.setServing(Integer.parseInt(servings.getText().toString()));
-        recipe.setSkillLevel(spinnerSkillLevel.toString());
-        recipe.setImage(image.toString());
+        recipe.setSkillLevel(skillLevel);
+        recipe.setImage(imageUri);
 
         databaseHelper.addRecipe(recipe);
 
@@ -264,6 +293,5 @@ public class SendRecipeActivity extends AppCompatActivity {
         servings.setText(null);
         image.setImageURI(null);
     }
-
 
 }

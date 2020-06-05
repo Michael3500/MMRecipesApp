@@ -23,12 +23,12 @@ public class PageAdapter extends FragmentStatePagerAdapter {
                 return breakfastFragment;
             case 1: LunchFragment lunchFragment = new LunchFragment();
                 return lunchFragment;
-            case 2: DinnerFragment dinnerFragment = new DinnerFragment();
-                return dinnerFragment;
-            case 3: SnacksFragment snacksFragment = new SnacksFragment();
+            case 2: SnacksFragment snacksFragment = new SnacksFragment();
                 return snacksFragment;
-            case 4: DessertsFragment dessertsFragment = new DessertsFragment();
-                return dessertsFragment;
+            case 3: DinnerFragment dinnerFragment = new DinnerFragment();
+                return dinnerFragment;
+            case 4: DessertFragment dessertFragment = new DessertFragment();
+                return dessertFragment;
             default: return null;
         }
     }

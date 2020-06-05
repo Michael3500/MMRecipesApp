@@ -1,9 +1,11 @@
 package com.example.mmrecipes;
 
+import java.util.List;
+
 public class Recipe {
 
     private int id;
-    private String title;
+     String title;
     private String description;
     private String category;
     private byte[] ingredients;
@@ -27,7 +29,7 @@ public class Recipe {
     private int cookTime;
     private int serving;
     private String skillLevel;
-    private String image;
+     String image;
 
     public Recipe() {
     }

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.viewpager.widget.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:layout_below="@+id/tool">
+    android:id="@+id/viewpager"
+    android:layout_below="@+id/tablayout">
+
+
+    <include
+        android:id="@+id/recipesgridview"
+        layout="@layout/recipesgridview"
+        android:visibility="visible" />
+
 
 </androidx.viewpager.widget.ViewPager>
